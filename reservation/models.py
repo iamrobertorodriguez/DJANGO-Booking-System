@@ -23,7 +23,7 @@ class Reservation(models.Model):
         choices=STATUS_CHOICES,
         default=PENDING,
         help_text=_(
-            "Options for currency are the following 3: 'PNDG' for pending status, 'PAID' for paid status or 'RMVD' for removed status"
+            "Options for status are the following 3: 'PNDG' for pending status, 'PAID' for paid status or 'RMVD' for removed status"
         ),
         error_messages={
             "choices": _("Only 'PNDG' for pending status, 'PAID' for paid status or 'RMVD' for removed status can be passed as status."),
@@ -78,10 +78,16 @@ class Reservation(models.Model):
         ),
     )
 
+    # Creation and updating date
+    created_at = models.DateField(auto_now_add=True)
+    updated_at = models.DateField(auto_now=True)
+
+    # The price per night of the room will be multiplied by this field
     days_of_stay = models.IntegerField(
         _("Days of Stay")
     )
 
+    # The result of the aforementioned multiplication will be assigned in this field
     total_price = models.CharField(
         _("Total price"),
         max_length=16,
