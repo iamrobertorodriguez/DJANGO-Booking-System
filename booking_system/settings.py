@@ -1,5 +1,4 @@
 import environ
-import django_heroku
 from pathlib import Path
 from datetime import timedelta
 
@@ -155,7 +154,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
+STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static'
-
-# Setting static files for deploying
-django_heroku.settings(locals())
