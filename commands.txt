@@ -1,2 +1,0 @@
-docker build --tag booking-system-drf .
-docker run --publish 8000:8000 booking-system-drf
