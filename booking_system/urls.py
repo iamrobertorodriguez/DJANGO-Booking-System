@@ -7,6 +7,7 @@ from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
+from core.views import index
 
 # Swagger settings
 schema_view = get_schema_view(
@@ -14,7 +15,7 @@ schema_view = get_schema_view(
         title="Booking System by Roberto Rodriguez",
         default_version='v1',
         description="Test description",
-        terms_of_service="https://www.iamrobertorodriguez.ml/",
+        terms_of_service="https://www.iamrobertorodriguez.com/",
         contact=openapi.Contact(email="iamrobertorodriguez@proton.me"),
         license=openapi.License(name="BSD License"),
     ),
@@ -23,6 +24,7 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
+    path('', index, name=""),
     path('admin/', admin.site.urls),
 
     # Including all models urls
