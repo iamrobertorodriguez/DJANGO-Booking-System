@@ -119,13 +119,9 @@ WSGI_APPLICATION = 'booking_system.wsgi.application'
 # If the default database stops working it may be due to new Heroku policies, 
 # if so please connect a new database and run the command: python manage.py migrate --run-syncdb
 DATABASES = {
-    'default': {        	        	
-        'ENGINE': env.str('POSTGRES_ENGINE', default='django.db.backends.postgresql_psycopg2'),
-        'NAME': env.str('POSTGRES_NAME', default='ddgnf00qoms1sb'),
-        'USER': env.str('POSTGRES_USER', default='mzucjzcfnhlnhp'),
-        'PASSWORD': env.str('POSTGRES_PASSWORD', default='56158fcf9f3793a15915a18915f6ae6c83a8e2cc989883bdd66066d757411a4f'),
-        'HOST': env.str('POSTGRES_HOST', default='ec2-44-196-174-238.compute-1.amazonaws.com'),
-        'PORT': env.str('POSTGRES_PORT', default=5432),
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
